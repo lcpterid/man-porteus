@@ -1,0 +1,97 @@
+.\" 
+.\"
+.\" slapt-mod manpage
+.\" Copyright (C) 2010-2025 babam, ncmprhnsbl
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH SLAPT-MOD 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+slapt-mod \- A simple wrapper for slapt-get to build Porteus modules
+.SH SYNOPSIS
+.B slapt-mod
+[-c|-u]
+.br
+.B slapt-mod
+[-d|-m|-M|-n|-N PACKAGE_NAME]
+.br
+.B slapt-mod
+[-l|-s|-S PATTERN]
+   
+.SH DESCRIPTION
+The \fBslapt-mod\fR script downloads packages from Slackware and Slackware-derived package repositories, and builds them into Porteus \fBxzm\fR modules. It can build packages with or without dependencies. Built modules are stored in a temporary folder.
+.SH OPTIONS
+.TP
+\fB\-c\fR
+Purge cached packages from the temporary folder, then exit.
+.TP
+\fB\-d\fR
+Download packages, but do not build a module. The package can be converted later with a tool like \fBtxz2xzm\fR.
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Display a short help message and exit. (The help message is also displayed when \fBslapt-mod\fR is called with no arguments.)
+.TP
+\fB\-l\fR
+List currently installed (active) packages, then exit. The output of this command may be long, because the Porteus base modules contain many Slackware packages, and some modules you have installed may also contain numerous dependencies.
+.TP
+\fB\-m, \-M\fR
+Download and build module with dependencies. The lowercase \fB\-m\fR option builds the module with ZSTD compression, whereas the uppercase \fB\-M\fR builds it with XZ compression. The \fIPACKAGE\fR can be a base name like \fIed\fR or a full package name like \fIed-1.17-x86_64-3\fR.
+.TP
+\fB\-o\fR
+Download and build module \fIwithout\fR dependencies. The lowercase \fB\-m\fR option builds the module with ZSTD compression, whereas the uppercase \fB\-M\fR builds it with XZ compression. For the module to run properly, you may need to have the new module's dependencies built separately and activated before activating the new module itself.
+.TP
+\fB\-s, \-S\fR
+Search the repositories for available packages. The lowercase \fB\-s\fR will find any package containing the \fIPATTERN\fR, whereas the uppercase \fB\-S\fR requires that the base name of the package be an exact match. (If the output of \fBslapt-mod
+.TP
+\fB\-u\fR
+Update the repository databases, then exit. You should generally do this if you have not run \fBslapt-mod\fR for a while.
+
+.SH NOTES
+.PP
+This command must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+After building a module, you should move it from the temporary folder to a more permanent location, usually one of the folders within \fI/porteus\fR on your Porteus partition. To use the software, you must also activate the module using the \fBactivate\fR command, or by clicking it in the GUI file manager.
+
+.SH EXAMPLES
+
+.B
+slapt-mod -m mypackage
+.IP
+Downloads and builds a single module, with dependencies, with ZSTD compression. Only one module may be built with each invocation of \fBslapt-mod\fR.
+
+.PP
+.B
+slapt-mod -s ed
+.IP
+Searches for any package with the string "\fIed\fR" in its full name. For short package names, this can produce long output. Use the \fB-S\fR option for more precision.
+
+.SH ENVIRONMENT
+.TP
+.SM
+\fBTMP\fR
+The location of the temporary directory in which packages are extracted and remade into modules. By default, this is 
+.B
+/tmp.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+
+.SH AUTHORS
+babam <no email>, ncmprhnsbl <no email>
+.br
+
+.SH "SEE ALSO"
+activate(1), deactivate(1)
+

@@ -1,0 +1,67 @@
+.\" 
+.\"
+.\" deactivate manpage
+.\" Copyright (C) 20102020 brokenman
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH DEACTIVATE 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+deactivate \- deactivate Porteus modules on the fly
+.SH SYNOPSIS
+.B deactivate
+[OPTIONS] [FILE OR FOLDER]...
+.SH DESCRIPTION
+The \fBdeactivate\fR script activates a Porteus \fBxzm\fR module, adding its files to the file system. It is the Porteus equivalent of "installing", though it takes only a few moments.
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Display a short help message and exit. (The help message is also displayed when \fBactivate\fR is called with no arguments.)
+.TP
+\fB\-o\fR
+Recurse into subfolders. Use when calling \fBactivate\fR with a folder.
+.TP
+\fB\-q\fR
+Quiet mode. Disable UI messages.
+
+.SH EXAMPLES
+
+.B
+deactivate module.xzm
+.IP
+Deactivates a single module. The module does not need to be in the current directory; \fBdeactivate\fR will check against the list of currently activated modules.
+
+.PP
+.B
+activate module1.xzm module2.xzm module3.xzm
+.IP
+Deactivates multiple modules.
+
+.PP
+.B
+deactivate -q /path/folder_with_subfolders
+.IP
+Checks all modules in the given folder, and deactivates any that are currently activated.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+
+.SH AUTHORS
+brokenman <no email>
+.br
+
+.SH "SEE ALSO"
+activate(1)
+

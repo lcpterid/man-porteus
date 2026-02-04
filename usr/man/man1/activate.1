@@ -1,0 +1,79 @@
+.\" 
+.\"
+.\" activate manpage
+.\" Copyright (C) 20102020 brokenman
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH ACTIVATE 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+activate \- activate Porteus modules on the fly
+.SH SYNOPSIS
+.B activate
+[OPTIONS] [FILE OR FOLDER]...
+.SH DESCRIPTION
+The \fBactivate\fR script activates a Porteus \fBxzm\fR module, adding its files to the file system. It is the Porteus equivalent of "installing", though it takes only a few moments.
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Display a short help message and exit. (The help message is also displayed when \fBactivate\fR is called with no arguments.)
+.TP
+\fB\-o\fR
+Recurse into subfolders. Use when calling \fBactivate\fR with a folder.
+.TP
+\fB\-q\fR
+Quiet mode. Disable UI messages.
+
+.SH EXAMPLES
+
+.B
+activate module.xzm
+.IP
+Activates a single module in the current directory.
+
+.PP
+.B
+activate module1.xzm module2.xzm module3.xzm
+.IP
+Activates multiple modules in the current directory.
+
+.PP
+.B
+activate *.xzm
+.IP
+Activates all modules in the current directory.
+
+.PP
+.B
+activate /path/folder_with_subfolders
+.IP
+Activates all modules in the given folder.
+
+.PP
+.B
+activate -o /path/folder_with_subfolders
+.IP
+Activates all modules in the given folder and all its subfolders, recursively.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+
+.SH AUTHORS
+brokenman <no email>
+.br
+
+.SH "SEE ALSO"
+deactivate(1)
+
