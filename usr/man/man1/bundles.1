@@ -1,0 +1,50 @@
+.\" 
+.\"
+.\" bundles manpage
+.\" Copyright (C) 2016-2020 Jay Flood, SP, Brasil
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH BUNDLES 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+bundles \- download Porteus bundles
+.SH SYNOPSIS
+.B bundles 
+   
+.SH DESCRIPTION
+\fBbundles\fR is an interactive script that allows you to download bundles directly from the Porteus website. Bundles are optional \fBxzm\fR modules that were prepared by the Porteus developers.
+
+.PP
+When you run \fBbundles\fR, you will see a numbered list of available bundles. To download a bundle, type one of the numbers and press \fIEnter\fR.
+
+You will then be asked to type a path to download the file to. This could be a temporary directory like \fI/tmp\fR, or your Porteus module directory, which will be something like \fI/mnt/sdb1/porteus/modules\fR.
+
+.SH NOTES
+.PP
+The \fBbundles\fR script does not take any options.
+
+This command must be run as root using \fBsu\fR or \fBsudo\fR. 
+
+\fBbundles\fR only downloads bundles; it does not immediately activate them.
+
+If you are using a graphical desktop environment, you might prefer to use the GUI version of the bundles tool, \fBgtk-bundles\fR.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+
+.SH AUTHORS
+Jay Flood <no email>
+.br
+
