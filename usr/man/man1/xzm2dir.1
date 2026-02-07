@@ -1,0 +1,74 @@
+.\" 
+.\"
+.\" xzm2dir manpage
+.\" Copyright (C) 2010-2025 Tomas M., fanthom
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH XZM2DIR 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+xzm2dir \- extract a .xzm module to a directory
+.SH SYNOPSIS
+.B xzm2dir [\-h]
+.br
+.B xzm2dir
+\fImodule_name\fB [\fIoutput_directory\fB|\-current]
+   
+.SH DESCRIPTION
+The \fBxzm2dir\fR script extracts the contents of the Porteus \fBxzm\fR module at path \fImodule_name\fR into the directory \fIoutput_directory\fR. The extracted content may include directorys, symlinks, etc. If \fIoutput_directory\fR is not provided, or if the flag \fB-current\fR is passed in its place, then a subdirectory is created within the directory containing the module, named after the module itself, and the contents are extracted into that directory. 
+
+.PP
+\fBxzm2dir\fR uses \fBunsquashfs\fR to extract the compressed archive.
+.PP
+\fBxzm2dir\fR and \fBdir2xzm\fR can be used together to make changes to the contents of a module, by extracting it, modifying the contents and then re-creating it.
+
+.SH OPTIONS
+.TP
+\fB\-h\fR
+Display a short help message and exit. (The help message is also displayed when \fBxzm2dir\fR is called with no arguments.)
+.TP
+\fB\-current\fR
+Extract the module into a subdirectory of the directory containing the module, named after the module.
+
+.SH NOTES
+.PP
+This command must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+Only one module name should be given. 
+
+.SH EXAMPLES
+
+.PP
+.B
+xzm2dir module.xzm
+.IP
+Extract the module \fBmodule.xzm\fR, which in the current directory, into a subdirectory of the current directory called \fBmodule\fR.
+
+.PP
+.B
+xzm2dir module.xzm outputFolder
+.IP
+Extract the module \fBmodule.xzm\fR, which in the current directory, into a subdirectory of the current directory called \fBoutputFolder\fR.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+
+.SH AUTHORS
+Tomas M. <no email>, fanthom <no email>
+.br
+
+.SH "SEE ALSO"
+dir2xzm(1), lsxzm(1)
+
