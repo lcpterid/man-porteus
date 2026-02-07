@@ -1,0 +1,55 @@
+.\" 
+.\"
+.\" lsxzm manpage
+.\" Copyright (C) 2010-2025 82issa, fanthom
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH LSXZM 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+lsxzm \- list the contents of Porteus modules
+.SH SYNOPSIS
+.B lsxzm
+[-?|--help|--about] \fIpath_to_module\fR 
+   
+.SH DESCRIPTION
+The \fBlsxzm\fR script lists the full paths of the files and directories contained in the Porteus \fBxzm\fR module at \fIpath_to_module\fR, with one path on each line. \fBlsxzm\fR uses \fBunsquashfs\fR to make the list.
+.SH OPTIONS
+.TP
+\fB\-?, --help, --about\fR
+Display a short help message and exit.
+
+.SH NOTES
+.PP
+Only one module path should be provided.
+
+.SH EXAMPLES
+
+.B
+lsxzm /mnt/sdb1/porteus/optional/ed-1.17-x86_64-3.xzm
+
+.IP
+Displays the paths of all files in the module \fBed-1.17-x86_64-3.xzm\fR. These files will be added to the Porteus file system if the module is activated.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+
+.SH AUTHORS
+82issa <no email>, fanthom <no email>
+.br
+
+.SH "SEE ALSO"
+dir2xzm(1), xzm2dir(1), txz2xzm(1)
+
