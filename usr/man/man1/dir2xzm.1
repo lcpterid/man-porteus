@@ -1,0 +1,65 @@
+.\" 
+.\"
+.\" dir2xzm manpage
+.\" Copyright (C) 2010-2025 Tomas M., fanthom, ncmprhnsbl, jssouza
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH DIR2XZM 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+dir2xzm \- Convert directory tree into a zstd or xz compressed module
+.SH SYNOPSIS
+.B dir2xzm
+[-x|-z|-l|-h] \fIsource_directory\fR \fIoutput_file.xzm\fR
+   
+.SH DESCRIPTION
+The \fBdir2xzm\fR script compresses the directory structure within \fIsource_directory\fR into an \fBxzm\fR module for use within Porteus. The content within \fIsource_directory\fR should be laid out like a false root of the file system. Folder structure and symlinks are preserved. \fBdir2xzm\fR uses \fBmksquashfs\fR to create the compressed archive.
+.SH OPTIONS
+.TP
+\fB\-h\fR
+Display a short help message and exit. (The help message is also displayed when \fBdir2xzm\fR is called with no arguments.)
+.TP
+\fB\-l\fR
+Use lz4 compression.
+.TP
+\fB\-x\fR
+Use xz compression. This is the default.
+.TP
+\fB\-z\fR
+Use zstd compression.
+
+.SH NOTES
+.PP
+This command must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+Only one directory should be given. It should represent the root of the file system; for example, an executable binary for your module might be found in the subdirectory like \fIusr/bin\fR relative to the source directory..
+
+.SH EXAMPLES
+
+.B
+dir2xzm -z /tmp/makemod/myprog/ myprog-v1.xzm
+.IP
+Create the module \fBmyprog-v1.xzm\fR containing all files in the folder \fB/tmp/makemod/myprog/\fR. When activated, the files will be injected into the Porteus file system at the root.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+
+.SH AUTHORS
+fanthom <no email>, ncmprhnsbl <no email>, jjsouza <no email>
+.br
+
+.SH "SEE ALSO"
+txz2xzm(1), txz2dir(1), lsxzm(1)
+
