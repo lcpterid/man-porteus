@@ -21,7 +21,10 @@
 dir2xzm \- Convert directory tree into a zstd or xz compressed module
 .SH SYNOPSIS
 .B dir2xzm
-[-x|-z|-l|-h] \fIsource_directory\fR \fIoutput_file.xzm\fR
+\-h
+.br
+.B dir2xzm
+[\-x|\-z|\-l] \fIsource_directory\fR \fIoutput_file.xzm\fR
    
 .SH DESCRIPTION
 The \fBdir2xzm\fR script compresses the directory structure within \fIsource_directory\fR into an \fBxzm\fR module for use within Porteus. The content within \fIsource_directory\fR should be laid out like a false root of the file system. Folder structure and symlinks are preserved. \fBdir2xzm\fR uses \fBmksquashfs\fR to create the compressed archive.
