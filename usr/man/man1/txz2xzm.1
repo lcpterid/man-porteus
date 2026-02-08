@@ -1,0 +1,87 @@
+.\" 
+.\"
+.\" txz2xzm manpage
+.\" Copyright (C) 2010-2025 Tomas M., fanthom
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH TXZ2XZM 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+txz2xzm \- Convert Slackware's TXZ package into a .xzm compressed module
+.SH SYNOPSIS
+.B txz2xzm
+\-h
+.br
+.B txz2xzm
+[\-x|\-z|\-l] [\fIsource_package\fR|\fIsource_folder\fR] \fI...\fR
+
+.SH DESCRIPTION
+The \fBtxz2xzm\fR script converts one or more Slackware package files in \fBtxz\fR or \fBtgz\fR format into Porteus module files in \fBxzm\fR format. The directory structure and symlinks are preserved. Each Porteus module is saved in the same folder as the corresponding Slackware package file, but with the filename extension changed to \fB.xzm\fR.
+
+.PP
+In Porteus, Slackware package files can be obtained from configured repositories using the \fBslapt-mod\fR tool.
+
+.PP
+ \fBtxz2xzm\fR uses \fBinstallpkg\fR to extract the contents of the Slackware package into a temporary location (\fI/tmp/txz2xzm\fR), and \fBdir2xzm\fR to create the Porteus module.
+
+.SH OPTIONS
+.TP
+\fB\-h\fR
+Display a short help message and exit. (The help message is also displayed when \fBtxz2xzm\fR is called with no arguments.)
+
+.TP
+\fB\-l\fR
+Use lz4 compression in the Porteus module.
+.TP
+\fB\-x\fR
+Use xz compression in the Porteus module. This is the default.
+.TP
+\fB\-z\fR
+Use zstd compression in the Porteus module.
+
+.SH NOTES
+.PP
+This command must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+.SH EXAMPLES
+
+.PP
+.B
+txz2xzm -z package.txz
+.IP
+Create the module \fBpackage.xzm\fR from the Slackware package \fBpackage.txz\fR in the current directory. The module will use zstd compression.
+
+.PP
+.B
+txz2xzm package1.txz package2.txz package3.txz
+.IP
+Create Porteus modules from each of the Slackware packages listed. The modules will use the default xz compression.
+
+.PP
+.B
+txz2xzm /folder/with_packages/
+.IP
+Create Porteus modules from each Slackware package found in the given folder.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+
+.SH AUTHORS
+Tomas M. <no email>, fanthom <no email>
+.br
+
+.SH "SEE ALSO"
+dir2xzm(1), txz2dir(1), lsxzm(1)
+
