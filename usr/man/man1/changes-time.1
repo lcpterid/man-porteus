@@ -1,0 +1,56 @@
+.\" 
+.\"
+.\" changes-time manpage
+.\" Copyright (C) 2016-2020 Jay Flood, SP, Brasil
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH CHANGES-TIME 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+changes-time \- copy files that have been added or modified on your system over a specified period of time
+.SH SYNOPSIS
+.B changes-time 
+   
+.SH DESCRIPTION
+\fBchanges-time\fR is an interactive script that allows you to gather files that you have recently changed. The files are saved into a specific folder, for you to process later.
+
+\fBchanges-time\fR may be useful, for example, if you wish to build a hardware driver or other non-packaged software into a Porteus module. You can install the software into the file system, run \fBchanges-time\fR to gather the files that the installation generated, and then use \fBdir2xzm\fR to turn the folder into a Porteus module, which can be activated when you start Porteus.
+
+.PP
+When you run \fBchanges-time\fR, you will be prompted to enter an integer number of minutes from which to collect changes. Choose a time period and press \fIEnter\fR (the default is 3).
+
+The script will then report the folder to which your changes have been saved.
+
+.SH NOTES
+.PP
+The \fBchanges-time\fR script does not take any options.
+
+This command must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+\fBchanges-time\fR only moves your recently changed files to another folder; it does not assemble them into a Porteus module. You can use \fBdir2xzm\fR to make a module.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: 
+.UR
+https://forum.porteus.org/
+.UE
+
+.SH AUTHORS
+Porteus team
+.br
+
+.SH "SEE ALSO"
+save-session(1)
+
