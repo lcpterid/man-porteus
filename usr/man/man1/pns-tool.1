@@ -1,0 +1,56 @@
+.\" 
+.\"
+.\" pns-tool manpage
+.\" Copyright (C) 2010-2025 fanthom
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH BUNDLES 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+pns-tool \- set up internet connection
+.SH SYNOPSIS
+.B pns-tool 
+
+.SH DESCRIPTION
+\fBpns-tool\fR is an interactive script that allows you to connect to the internet on Porteus. \fBpns-tool\fR is not needed in graphical desktop environments, where internet connections are handled by NetworkManager, but you may find it useful if you are running Porteus in text-only mode, or if you have chosen to disable NetworkManager.
+ 
+\fBpns-tool\fR works by configuring and launching the \fBwpa_supplicant\fR service.
+
+.PP
+When you run \fBpns-tool\fR, you will need to answer a series of questions including:
+
+\[bu] which interface you want use to connect (wlan0, eth0...)
+.br
+\[bu] whether to connect using DHCP - the answer is usually yes!
+.br
+\[bu] for WiFi adapters, which network to connect to
+.br
+\[bu] for secure WiFi, the password
+
+After you provide the settings, a text editor (\fBmcedit\fR) will appear, in which you can review and change the network configuration files that \fBpns-tool\fR has generated. Then \fBpns-tool\fR attempts to connect and run some tests; you can watch the output of these for any errors. Finally, \fBpns-tool\fR gives you the option to create a Porteus module with the network configuration files it has made. If you say yes to this, and move the module later into your Porteus modules folder, it will place the configuration files into the file system and connect to the internet automatically every time the system starts.
+
+.SH NOTES
+.PP
+The \fBpns-tool\fR script does not take any command-line options.
+
+This command must be run as root using \fBsu\fR or \fBsudo\fR. 
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+
+.SH AUTHORS
+Jay Flood <no email>
+.br
+
