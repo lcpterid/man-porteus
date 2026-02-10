@@ -24,7 +24,7 @@ txz2xzm \- Convert Slackware's TXZ package into a .xzm compressed module
 \-h
 .br
 .B txz2xzm
-[\-x|\-z|\-l] [\fIsource_package\fR|\fIsource_folder\fR] \fI...\fR
+[\-x|\-z|\-l] [\-current=\fIfolder\fR] [\fIsource_package\fR|\fIsource_folder\fR] \fI...\fR
 
 .SH DESCRIPTION
 The \fBtxz2xzm\fR script converts one or more Slackware package files in \fBtxz\fR or \fBtgz\fR format into Porteus module files in \fBxzm\fR format. The directory structure and symlinks are preserved. Each Porteus module is saved in the same folder as the corresponding Slackware package file, but with the filename extension changed to \fB.xzm\fR.
@@ -49,6 +49,9 @@ Use xz compression in the Porteus module. This is the default.
 .TP
 \fB\-z\fR
 Use zstd compression in the Porteus module.
+.TP
+\fB\-current=\fIfolder\fR
+Sets the current working directory to \fIfolder\fR before running.
 
 .SH NOTES
 .PP
