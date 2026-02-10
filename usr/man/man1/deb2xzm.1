@@ -1,0 +1,87 @@
+.\" 
+.\"
+.\" deb2xzm manpage
+.\" Copyright (C) 2010-2025 Porteus developers
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH TXZ2XZM 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+deb2xzm \- Convert Debian's DEB package into a .xzm compressed module
+.SH SYNOPSIS
+.B deb2xzm
+\-h
+.br
+.B deb2xzm
+[\-x|\-z|\-l] [\-current=\fIfolder\fR] \fIsource_package\fR \fI...\fR
+
+.SH DESCRIPTION
+The \fBdeb2xzm\fR script converts one or more Debian package files in \fBdeb\fR or \fBtgz\fR format into Porteus module files in \fBxzm\fR format. The directory structure and symlinks are preserved. Each Porteus module is saved in the same folder as the corresponding Debian package file, but with the filename extension changed to \fB.xzm\fR.
+
+.PP
+There is no built-in downloader for Debian packages in Porteus, but you may find \fBdeb2xzm\fR useful if you are coming to Porteus from a Debian-based distro and would like to use a package from your distro's repository. Due to differences in the file system between distros, you may find that you need to extract the module with \fBxzm2dir\fR, move some files around and re-create it with \fBdir2xzm\fR.
+
+.PP
+ The Debian package extraction tools are not present on Porteus, so \fBdeb2xzm\fR uses tools including \fBar\fR, \fBtar\fR and \fBgzip\fR to convert the package into a Porteus module. 
+
+.SH OPTIONS
+.TP
+\fB\-h\fR
+Display a short help message and exit. (The help message is also displayed when \fBdeb2xzm\fR is called with no arguments.)
+
+.TP
+\fB\-l\fR
+Use lz4 compression in the Porteus module.
+.TP
+\fB\-x\fR
+Use xz compression in the Porteus module. This is the default.
+.TP
+\fB\-z\fR
+Use zstd compression in the Porteus module.
+.TP
+\fB\-current=\fIfolder\fR
+Sets the current working directory to \fIfolder\fR before running.
+
+.SH NOTES
+.PP
+This command must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+.SH EXAMPLES
+
+.PP
+.B
+deb2xzm -z package.deb
+.IP
+Create the module \fBpackage.xzm\fR from the Debian package \fBpackage.deb\fR in the current directory. The module will use zstd compression.
+
+.PP
+.B
+deb2xzm package1.deb package2.deb package3.deb
+.IP
+Create Porteus modules from each of the Debian packages listed. The modules will use the default xz compression.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: 
+.UR
+https://forum.porteus.org/
+.UE
+
+.SH AUTHORS
+Porteus team
+.br
+
+.SH "SEE ALSO"
+dir2xzm(1), xzm2dir(1), lsxzm(1)
+
