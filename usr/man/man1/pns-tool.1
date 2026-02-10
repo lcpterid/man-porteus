@@ -23,7 +23,7 @@ pns-tool \- set up internet connection
 .B pns-tool 
 
 .SH DESCRIPTION
-\fBpns-tool\fR is an interactive script that allows you to connect to the internet on Porteus. \fBpns-tool\fR is not needed in graphical desktop environments, where internet connections are handled by NetworkManager, but you may find it useful if you are running Porteus in text-only mode, or if you have chosen to disable NetworkManager.
+\fBpns-tool\fR is an interactive script that allows you to connect to the internet on Porteus. \fBpns-tool\fR is not needed in graphical desktop environments, where internet connections are handled by NetworkManager. You may find it useful if you are running Porteus in text-only mode, or if you have chosen to disable NetworkManager.
  
 \fBpns-tool\fR works by configuring and launching the \fBwpa_supplicant\fR service.
 
@@ -38,7 +38,9 @@ When you run \fBpns-tool\fR, you will need to answer a series of questions inclu
 .br
 \[bu] for secure WiFi, the password
 
-After you provide the settings, a text editor (\fBmcedit\fR) will appear, in which you can review and change the network configuration files that \fBpns-tool\fR has generated. Then \fBpns-tool\fR attempts to connect and run some tests; you can watch the output of these for any errors. Finally, \fBpns-tool\fR gives you the option to create a Porteus module with the network configuration files it has made. If you say yes to this, and move the module later into your Porteus modules folder, it will place the configuration files into the file system and connect to the internet automatically every time the system starts.
+After you provide the settings, a text editor (\fBmcedit\fR) will appear, in which you can review and change the network configuration files that \fBpns-tool\fR has generated. Then \fBpns-tool\fR attempts to connect and run some tests; you can watch the output of these for any errors.
+
+Finally, \fBpns-tool\fR gives you the option to create a Porteus module with the network configuration files it has made. If you say yes to this, and move the module later into your Porteus modules folder, it will place the configuration files into the file system and connect to the internet automatically every time the system starts.
 
 .SH NOTES
 .PP
@@ -48,9 +50,13 @@ This command must be run as root using \fBsu\fR or \fBsudo\fR.
 
 .SH REPORTING BUGS
 .PP
-Please report any bugs or other issues on the Porteus forums: \fIhttps://forum.porteus.org/\fR.
+Please report any bugs or other issues on the Porteus forums: 
+.UR
+https://forum.porteus.org/
+.UE
+
 
 .SH AUTHORS
-Jay Flood <no email>
+fanthom <no email>
 .br
 
