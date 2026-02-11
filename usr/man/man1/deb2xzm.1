@@ -48,7 +48,7 @@ Use lz4 compression in the Porteus module.
 Use xz compression in the Porteus module. This is the default.
 .TP
 \fB\-z\fR
-Use zstd compression in the Porteus module.
+Use zstd compression in the Porteus module. This tends to make a larger file, but can be activated more quickly.
 .TP
 \fB\-current=\fIfolder\fR
 Sets the current working directory to \fIfolder\fR before running.
@@ -56,6 +56,17 @@ Sets the current working directory to \fIfolder\fR before running.
 .SH NOTES
 .PP
 This command must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+There are a few reasons why more complex Debian packages converted with \fBdeb2xzm\fR will probably not run on Porteus without further work: 
+
+\[bu] differences in the file system between distros, so that files are not where the Debian package expects them to be; 
+.br
+\[bu] \fBdeb2xzm\fR does not track or install any dependencies;
+.br
+\[bu] \fBdeb2xzm\fR does not run any pre- or post-installation scripts that may be present in the Debian package.
+
+.PP
+You may need to extract the module with \fBxzm2dir\fR, alter the contents and re-create the module with \fBdir2xzm\fR.
 
 .SH EXAMPLES
 
@@ -83,5 +94,5 @@ Porteus team
 .br
 
 .SH "SEE ALSO"
-dir2xzm(1), xzm2dir(1), lsxzm(1)
+rpm2xzm(1), dir2xzm(1), xzm2dir(1), lsxzm(1)
 

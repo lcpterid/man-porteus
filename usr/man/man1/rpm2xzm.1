@@ -1,0 +1,98 @@
+.\" 
+.\"
+.\" rpm2xzm manpage
+.\" Copyright (C) 2010-2025 Porteus developers
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH RPM2XZM 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+rpm2xzm \- Convert Red Hat's RPM package into .xzm compressed module
+.SH SYNOPSIS
+.B rpm2xzm
+\-h
+.br
+.B rpm2xzm
+[\-x|\-z|\-l] [\-current=\fIfolder\fR] \fIsource_package\fR \fI...\fR
+
+.SH DESCRIPTION
+The \fBrpm2xzm\fR script converts one or more Red Hat package files in \fBrpm\fR format into Porteus module files in \fBxzm\fR format. The directory structure and symlinks are preserved. Each Porteus module is saved in the same folder as the corresponding Red Hat package file, but with the filename extension changed to \fB.xzm\fR.
+
+.PP
+There is no built-in downloader for Red Hat packages in Porteus, but you may find \fBrpm2xzm\fR useful if you are coming to Porteus from a Red Hat-based distro and would like to use a package downloaded from your distro's repository. 
+
+.PP
+The Red Hat package extraction tools are not present on Porteus, so \fBrpm2xzm\fR uses the Slackware tool \fBrpm2txz\fR to convert the package to the Slackware \fBtxz\fR format, and the Porteus tool \fBtxz2xzm\fR to turn the Slackware package into a Porteus module. 
+
+.SH OPTIONS
+.TP
+\fB\-h\fR
+Display a short help message and exit. (The help message is also displayed when \fBrpm2xzm\fR is called with no arguments.)
+
+.TP
+\fB\-l\fR
+Use lz4 compression in the Porteus module.
+.TP
+\fB\-x\fR
+Use xz compression in the Porteus module. This is the default.
+.TP
+\fB\-z\fR
+Use zstd compression in the Porteus module. This tends to make a larger file, but can be activated more quickly.
+.TP
+\fB\-current=\fIfolder\fR
+Sets the current working directory to \fIfolder\fR before running.
+
+.SH NOTES
+.PP
+This command must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+There are a few reasons why more complex Red Hat packages converted with \fBrpm2xzm\fR will probably not run on Porteus without further work: 
+
+\[bu] differences in the file system between distros, so that files are not where the Red Hat package expects them to be; 
+.br
+\[bu] \fBrpm2xzm\fR does not track or install any dependencies;
+.br
+\[bu] \fBrpm2xzm\fR does not run any pre- or post-installation scripts that may be present in the Red Hat package.
+
+.PP
+You may need to extract the module with \fBxzm2dir\fR, alter the contents and re-create the module with \fBdir2xzm\fR.
+
+.SH EXAMPLES
+
+.PP
+.B
+rpm2xzm -z package.rpm
+.IP
+Create the module \fBpackage.xzm\fR from the Red Hat package \fBpackage.rpm\fR in the current directory. The module will use zstd compression.
+
+.PP
+.B
+rpm2xzm package1.rpm package2.rpm package3.rpm
+.IP
+Create Porteus modules from each of the Red Hat packages listed. The modules will use the default xz compression.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: 
+.UR
+https://forum.porteus.org/
+.UE
+
+.SH AUTHORS
+Porteus team
+.br
+
+.SH "SEE ALSO"
+deb2xzm(1), dir2xzm(1), xzm2dir(1), lsxzm(1)
+
