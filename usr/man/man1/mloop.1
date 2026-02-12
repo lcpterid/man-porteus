@@ -1,0 +1,97 @@
+.\" 
+.\"
+.\" mloop manpage
+.\" Copyright (C) 2010-2025 brokenman, fanthom
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH MLOOP 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+mloop, uloop \- Mount an archive on a loop device
+.SH SYNOPSIS
+.B mloop
+\-h
+.br
+.B mloop
+\fI/path/to/archive_file\fR
+.br
+.B uloop
+
+.SH DESCRIPTION
+The \fBmloop\fR script mounts an archive file in the directory \fI/mnt/loop/\fR. The mounted file behaves like a read-only physical device: you can read the contents, or copy them to edit elsewhere, but you cannot edit the files in place.
+
+.PP
+The \fBuloop\fR unmounts any archive file that \fBmloop\fR had mounted.
+
+.PP
+Depending on the archive type, \fBmloop\fR uses a combination of the \fBmount\fR, \fBarchivemount\fR, \fBlosetup\fR and \fBcryptsetup\fR tools to perform the mount. It ensures that a loop device is available, or creates one if needed.
+
+.SH OPTIONS
+.TP
+\fB\-h\fR
+Display a short help message and exit. (The help message is also displayed when \fBmloop\fR is called with no arguments.)
+
+.SH SUPPORTED ARCHIVE FORMATS
+.PP
+You can mount any of the following archive files:
+
+.PP
+\[bu] Porteus module (\fB.xzm\fR)
+.br
+\[bu] ISO image (\fB.iso\fR)
+.br
+\[bu] Porteus save.dat container (\fB.dat\fR)
+.br
+\[bu] Raw disk image (\fB.img\fR)
+.br
+\[bu] initrd initial RAM disk image (\fBinitrd.xz, .initrd.zst\fR)
+.br
+\[bu] gzipped tarball (\fB.tar.gz\fR)
+.br
+\[bu] bzipped tarball (\fB.tar.bz2\fR)
+.br
+\[bu] Uncompressed tar archives (\fB.tar\fR)
+.br
+\[bu] Web mount (httpfs), where \fI/path/to/archive_file\fR is the URL of a HttpFS server
+
+.SH NOTES
+.PP
+These commands must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+You can only mount one archive file at a time with \fBmloop\fR.
+
+Your working directory should not be inside \fI/mnt/loop\fR when you run \fBuloop\fR.
+
+.SH EXAMPLES
+
+.PP
+.B
+mloop folder/package.tar.gz
+.IP
+The archive \fBpackage.tar.gz\fR is mounted on the directory \fI/mnt/loop/\fR. You can simply type \fBcd /mnt/loop\fR to go there and explore.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: 
+.UR
+https://forum.porteus.org/
+.UE
+
+.SH AUTHORS
+brokenman <no email>, fanthom <no email>
+.br
+
+.SH "SEE ALSO"
+activate(1), deactivate(1)
+

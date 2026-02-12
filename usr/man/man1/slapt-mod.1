@@ -52,7 +52,7 @@ Download and build module with dependencies. The lowercase \fB\-m\fR option buil
 Download and build module \fIwithout\fR dependencies. The lowercase \fB\-m\fR option builds the module with ZSTD compression, whereas the uppercase \fB\-M\fR builds it with XZ compression. For the module to run properly, you may need to have the new module's dependencies built separately and activated before activating the new module itself.
 .TP
 \fB\-s, \-S\fR
-Search the repositories for available packages. The lowercase \fB\-s\fR will find any package containing the \fIPATTERN\fR, whereas the uppercase \fB\-S\fR requires that the base name of the package be an exact match. (If the output of \fBslapt-mod
+Search the repositories for available packages. The lowercase \fB\-s\fR will find any package containing the \fIPATTERN\fR, whereas the uppercase \fB\-S\fR requires that the base name of the package be an exact match. If the output of \fBslapt-mod \-s\fR is too long, try using \fB\-S\fR.
 .TP
 \fB\-u\fR
 Update the repository databases, then exit. You should generally do this if you have not run \fBslapt-mod\fR for a while.
