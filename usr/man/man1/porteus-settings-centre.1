@@ -1,0 +1,172 @@
+.\" 
+.\"
+.\" porteus-settings-centre manpage
+.\" Copyright (C) 2010-2025 Porteus team
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH PORTEUS-SETTINGS-CENTRE 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+porteus-settings-centre \- Launch various Porteus settings programs
+.SH SYNOPSIS
+.B porteus-settings-centre
+.br
+.B gtk-update-porteus
+.br
+.B pinstaller
+.br
+.B gtk-language-selection-start
+.br
+.B gtk-porteus-timeconfig
+.br
+.B gtk-xkb-select
+.br
+.B gtk-soundcard-select
+.br
+.B gtk-bluetooth
+.br
+.B gtk-firewall
+.br
+.B gtk-password
+.br
+.B gtk-encrypt
+.br
+.B gtk-decrypt
+.br
+.B magic-folders
+.br
+.B make-changes
+.br
+.B save-session
+.br
+.B gtk-save-settings
+.br
+
+.SH DESCRIPTION
+The \fBporteus-settings-centre\fR tool is a graphical launcher from which you can start a number of tools which change your settings in Porteus.
+
+.SH PROGRAMS
+The Porteus settings centre can launch the following programs:
+
+.SS Porteus Updater (gtk-update-porteus)
+.IP
+The update function will check for Porteus updates on the server that <b>do not</b> exist in your modules folder. You can choose the updates to download. The updated modules will be automatically moved into place upon reboot.
+
+.SS Porteus Installer (pinstaller)
+.IP
+The installer will assist with installing Porteus to a fixed or removable drive. You can prepare a partition using your partition manager.
+
+.SS Language Setup (gtk-language-selection-start)
+.IP
+Choose and download your chosen language file packs from the official Porteus server. Porteus provides language support for most languages.
+
+.SS Time Config (gtk-porteus-timeconfig)
+.IP
+Set yout timezone and clock settings including UTC or local time. This is useful if you clock is showing incorrect time.
+
+.SS Keyboard Settings (gtk-xkb-select)
+.IP
+Change the keyboard layout for your existing window manager and current session. You can also choose a variant of your layout.
+
+.SS Sound Settings (gtk-soundcard-select)
+.IP
+Choose which sound card you would like to use as your default. This is useful if your system has more than one sound card
+
+.SS Bluetooth Settings (gtk-bluetooth)
+.IP
+Start or Stop the Bluetooth Daemon. With the option to start at boot.
+
+.SS Porteus Firewall(gtk-firewall)
+.IP
+Manage your firewall. Toggle the firewall on/off and set the desired protection level. You can also choose to activate the firewall the next time Porteus starts.
+
+.SS Porteus Password (gtk-password)
+.IP
+Change your current user password.
+
+.SS Encrypt a chosen file or folder (gtk-encrypt)
+.IP
+Select a file or folder and encrypt it. To decrypt the chosen file/folder you should use this tool again.
+
+.SS Decrypt a chosen file or folder (gtk-decrypt)
+.IP
+Select a file or folder and decrypt it. To encrypt the chosen file/folder you should use this tool again.
+
+.SS Porteus Magic Folders (magic-folders)
+.IP
+Porteus can monitor changes to a chosen folder/s and save to a file or folder on your system. Encrypted save files are supported.
+
+.SS Save Porteus Changes (make-changes)
+.IP
+Save all of your Porteus changes to a file on your system or removable device. Encrypted save files are supported.
+
+.SS Save Your Current Porteus Session (save-session)
+.IP
+Save your current Porteus session to a module, file or folder. Useful for setting up Porteus how you like it.
+
+.SS Save some settings in a module (gtk-save-settings)
+.IP
+Save some system settings(passwords, firewall, bluetooth, timezone), that you have set using the System Settings tab, to a module.
+
+.SH CONFIGURATION FILES
+The Porteus settings centre has shortcuts to edit the following files in your default text editor:
+
+.SS Porteus Cheatcodes 
+.IP
+Read the cheatcodes available. Read about the cheatcodes and decide which ones you want to use before adding the chosen cheats to porteus.cfg.
+
+.SS Startup Scripts 
+.IP
+Run a command or a script when Porteus starts up.
+
+.SS Edit your changes location in porteus.cfg 
+.IP
+Edit the location of your changes file/folder in the file <b>porteus.cfg</b> for activation during your next boot.
+
+.SH WEBPAGES
+The Porteus settings centre has shortcute to view the following webpages in your default web browser:
+
+.SS Porteus FAQ 
+.IP
+Read the frequently asked questions about Porteus. For more indepth information and tutorials about Porteus you can visit the Porteus website. Stored locally at \fI/usr/doc/Porteus-FAQ/index.html\fR.
+
+.SS Porteus Tutorials 
+.IP
+The Porteus website contains many useful tutorials, walkthroughs and video presentations about the inner workings of Porteus. You may also join our forums.
+.UR
+http://porteus.org/info/tutorials.html
+.UE
+
+.SH NOTES
+.PP
+Most of these commands:
+
+.PP
+\[bu] must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+.br
+\[bu] are written to be run in an interactive graphical session.
+.br
+\[bu] do not take any options on the command line.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: 
+.UR
+https://forum.porteus.org/
+.UE
+
+.SH AUTHORS
+Porteus team
+.br
+
