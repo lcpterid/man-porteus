@@ -1,0 +1,90 @@
+.\" 
+.\"
+.\" update-browser manpage
+.\" Copyright (C) 2016-2020 Jay Flood, SP, Brasil
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH UPDATE-BROWSER 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+update-browser, gtk-update-browser \- Download live script from server to update a web browser
+.SH SYNOPSIS
+.B update-browser
+ \-h
+.br
+.B update-browser 
+[\-d] [\-g|\-c|\-f|\-o|\-p|\-v|\-r|\-n|\-y|\-a]
+   
+.SH DESCRIPTION
+\fBupdate-browser\fR is an interactive script that allows you to download updates for your web browser directly from the Porteus website, or from the browser's own website, and package the up-to-date browser as a Porteus module. You can also download a browser for the first time using this tool.
+
+.PP
+When you run \fBupdate-browser\fR with one of the browser options, you may be asked whether you want to download the version hosted on the Porteus server, or the browser's own server. Type \fBy\fR or \fBn\fR as appropriate and press \fIEnter\fR.
+
+The module is saved in \fI/tmp\fR. You should move it to the directory containing your old browser module (if you had one) before activating it. This might be your Porteus module directory, which will be something like \fI/mnt/sdb1/porteus/modules\fR.
+
+\fBgtk-update-browser\fR is an interactive graphical tool, in which you can browse and selectively download the same browser updates.
+
+.SH OPTIONS
+.TP
+\fB\-h\fR
+Display a short help message and exit. (The help message is also displayed when \fBupdate-browser\fR is called with no arguments.)
+.TP
+\fB\-g\fR
+Download an update for Google Chrome.
+.TP
+\fB\-c\fR
+Download an update for Chromium.
+.TP
+\fB\-f\fR
+Download an update for Firefox.
+.TP
+\fB\-o\fR
+Download an update for Opera.
+.TP
+\fB\-p\fR
+Download an update for Palemoon.
+.TP
+\fB\-v\fR
+Download an update for Vivaldi.
+.TP
+\fB\-r\fR
+Download an update for Chromium-gost.
+.TP
+\fB\-n\fR
+Download an update for Netsurf.
+.TP
+\fB\-y\fR
+Download an update for yt-dlp (terminal program for downloading Youtube and other videos.
+.TP
+\fB\-g\fR
+Download an update for Anydesk (remote desktop software).
+
+.SH NOTES
+.PP
+This command must be run as root using \fBsu\fR or \fBsudo\fR. 
+
+\fBupdate-browser\fR only downloads the browser update; it does not immediately activate it. You should deactivate your old browser module if appropriate, move the new browser module to an appropriate directory, and then \fBactivate\fR the up-to-date browser module.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: 
+.UR
+https://forum.porteus.org/
+.UE
+
+.SH AUTHORS
+Jay Flood <no email>
+.br
+
