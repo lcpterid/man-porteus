@@ -1,0 +1,89 @@
+.\" 
+.\"
+.\" psinfo manpage
+.\" Copyright (C) 2010-2025 Porteus team
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH PSINFO 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+psinfo, xpsinfo \- scrape the system and output a text file on the desktop with sysinfo 
+.SH SYNOPSIS
+.B psinfo
+
+.SH DESCRIPTION
+.PP
+The \fBpsinfo\fR script creates a file at \fI/tmp/psinfo.txt\fR containing system information:
+
+.PP
+\[bu] Porteus version
+.br
+\[bu] Kernel and processor information
+.br
+\[bu] Memory usage
+.br
+\[bu] List of block (storage) devices 
+.br
+\[bu] List of partitions, and which are mounted
+.br
+\[bu] Porteus boot cheatcodes
+.br
+\[bu] debug information from \fI/var/log/porteus-livedbg\fR 
+.br
+\[bu] Lists of sound cards, PCI devices, USB devices
+.br
+\[bu] List of kernel modules enabled
+.br
+\[bu] Hardware info from \fIdmidecode\fR
+.br
+\[bu] User names in the session (probably "guest" and "root")
+.br
+\[bu] Last boot and uptime
+.br
+\[bu] Loaded modules and Slackware packages
+.br
+\[bu] Kernel log from \fI/var/log/messages\fR
+.br
+\[bu] Screen information from xrandr
+.br
+\[bu] Xorg logs from \fI/var/log/Xorg.0.log\fR
+.br
+\[bu] X session errors
+.br
+
+.PP
+This information can be useful for debugging. The Porteus development team might ask you to provide the output of this file in order to troubleshoot issues.
+
+\fBxpsinfo\fR is an interactive graphical tool, in which you can browse and selectively save the same information.
+
+.SH NOTES
+.PP
+This command must be run as root. If you run it as guest, you will be prompted to enter the root password first.
+
+The \fBpsinfo\fR script does not take any command-line options.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: 
+.UR
+https://forum.porteus.org/
+.UE
+
+.SH AUTHORS
+Porteus team
+.br
+
+.SH "SEE ALSO"
+porteus-settings-centre(1)
+
