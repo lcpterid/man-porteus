@@ -1,0 +1,53 @@
+.\" 
+.\"
+.\" lsmodules manpage
+.\" Copyright (C) 2010-2025 jssouza
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+.\"
+.TH LSMODULES 1 "February 2026" "Porteus 5.01" "Porteus Scripts"
+.SH NAME
+lsmodules \- manage Porteus module activation status
+.SH SYNOPSIS
+.B lsmodules 
+   
+.SH DESCRIPTION
+\fBlsmodules\fR is an interactive graphical tool for activating and deactivating Porteus modules. The modules may be stored in the standard Porteus module directories, and any other directories where you store your modules.
+
+.PP
+When you run \fBlsmodules\fR, you will see a list of the modules available in each directory. Activated modules are indicated by a checkmark; deactivated modules by a cross. Double-click any module to toggle its activation status.
+
+There are two buttons in the top right corner:
+
+\[bu] \fBActivate Module\fR: opens a file selection dialog. You can activate any module in your file system.
+.br
+\[bu] \fBAdd Modules Directory\fR: opens a directory selection dialog. The directory will be added to the list. You can change or remove your custom modules directories later by editing the file \fI~/.config/lsmodules\fR.
+
+.SH NOTES
+.PP
+The \fBlsmodules\fR tool does not take any command-line options.
+
+\fBlsmodules\fR must be run within a graphical session. It must be run as root; you will be prompted for the root password.
+
+.SH REPORTING BUGS
+.PP
+Please report any bugs or other issues on the Porteus forums: 
+.UR
+https://forum.porteus.org/
+.UE
+
+.SH AUTHORS
+jssouza <no email>
+.br
+
