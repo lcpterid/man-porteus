@@ -27,10 +27,10 @@ deb2xzm \- Convert Debian's DEB package into a .xzm compressed module
 [\-x|\-z|\-l] [\-current=\fIfolder\fR] \fIsource_package\fR \fI...\fR
 
 .SH DESCRIPTION
-The \fBdeb2xzm\fR script converts one or more Debian package files in \fBdeb\fR or \fBtgz\fR format into Porteus module files in \fBxzm\fR format. The directory structure and symlinks are preserved. Each Porteus module is saved in the same folder as the corresponding Debian package file, but with the filename extension changed to \fB.xzm\fR.
+The \fBdeb2xzm\fR script converts one or more Debian package files from their original \fBdeb\fR format into Porteus module files in \fBxzm\fR format. The directory structure and symlinks are preserved. Each Porteus module is saved in the same folder as the corresponding Debian package file, but with the filename extension changed to \fB.xzm\fR.
 
 .PP
-There is no built-in downloader for Debian packages in Porteus, but you may find \fBdeb2xzm\fR useful if you are coming to Porteus from a Debian-based distro and would like to use a package from your distro's repository. Due to differences in the file system between distros, you may find that you need to extract the module with \fBxzm2dir\fR, move some files around and re-create it with \fBdir2xzm\fR.
+There is no built-in downloader for Debian packages in Porteus, but you may find \fBdeb2xzm\fR useful if you are coming to Porteus from a Debian-based distro and would like to use a package from your distro's repository. Due to differences in the way packages work between distros, you may find that the package does not work properly straight away; see \fBNOTES\fR below. 
 
 .PP
  The Debian package extraction tools are not present on Porteus, so \fBdeb2xzm\fR uses tools including \fBar\fR, \fBtar\fR and \fBgzip\fR to convert the package into a Porteus module. 
@@ -66,7 +66,7 @@ There are a few reasons why more complex Debian packages converted with \fBdeb2x
 \[bu] \fBdeb2xzm\fR does not run any pre- or post-installation scripts that may be present in the Debian package.
 
 .PP
-You may need to extract the module with \fBxzm2dir\fR, alter the contents and re-create the module with \fBdir2xzm\fR.
+For best results, you may need to make changes to the module after you convert it. To do this: extract the module with \fBxzm2dir\fR, edit or move the extracted files as needed, and re-create the module with \fBdir2xzm\fR.
 
 .SH EXAMPLES
 
